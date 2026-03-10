@@ -1,0 +1,136 @@
+.nav-button {
+    width: 160px;
+    height: 160px;
+    border-radius: 16px;
+    border: none;
+    background-color: #4A90D9;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #357ABD;
+}
+
+.home-list {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.course-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.course-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.submit-button {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4A90D9;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #357ABD;
+}
+
+.cap-control {
+    margin: 16px 0 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cap-control input[type="number"] {
+    width: 60px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.counter {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #4A90D9;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    min-width: 280px;
+    text-align: center;
+}
+
+.modal-table {
+    width: 100%;
+    margin: 16px 0;
+    font-size: 16px;
+    border-collapse: collapse;
+}
+
+.modal-table td {
+    padding: 8px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-table td:first-child {
+    font-weight: bold;
+    text-align: left;
+}
+
+.modal-table td:last-child {
+    text-align: right;
+}
+
+.back-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6c757d;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.back-button:hover {
+    background-color: #565e64;
+}

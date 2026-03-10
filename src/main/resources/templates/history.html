@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>History - Degree Planner</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <h1>Semester 1</h1>
+
+    <div class="home-list">
+        <button class="nav-button" onclick="openModal('Course 1', 'A', '3')">Course 1</button>
+        <button class="nav-button" onclick="openModal('Course 2', 'B+', '4')">Course 2</button>
+        <button class="nav-button" onclick="openModal('Course 3', 'A-', '3')">Course 3</button>
+        <button class="nav-button" onclick="openModal('Course 4', 'B', '3')">Course 4</button>
+        <button class="nav-button" onclick="openModal('Course 5', 'A', '4')">Course 5</button>
+        <button class="nav-button" onclick="openModal('Course 6', 'C+', '3')">Course 6</button>
+    </div>
+
+    <h1>Semester 2</h1>
+
+    <div class="home-list">
+        <button class="nav-button" onclick="openModal('Course 1', 'A', '3')">Course 1</button>
+        <button class="nav-button" onclick="openModal('Course 2', 'B+', '4')">Course 2</button>
+        <button class="nav-button" onclick="openModal('Course 3', 'A-', '3')">Course 3</button>
+        <button class="nav-button" onclick="openModal('Course 4', 'B', '3')">Course 4</button>
+        <button class="nav-button" onclick="openModal('Course 5', 'A', '4')">Course 5</button>
+        <button class="nav-button" onclick="openModal('Course 6', 'C+', '3')">Course 6</button>
+    </div>
+
+    <h1>Semester 3</h1>
+
+    <div class="home-list">
+        <button class="nav-button" onclick="openModal('Course 1', 'A', '3')">Course 1</button>
+        <button class="nav-button" onclick="openModal('Course 2', 'B+', '4')">Course 2</button>
+        <button class="nav-button" onclick="openModal('Course 3', 'A-', '3')">Course 3</button>
+        <button class="nav-button" onclick="openModal('Course 4', 'B', '3')">Course 4</button>
+        <button class="nav-button" onclick="openModal('Course 5', 'A', '4')">Course 5</button>
+        <button class="nav-button" onclick="openModal('Course 6', 'C+', '3')">Course 6</button>
+    </div>
+
+    <a th:href="@{/courses}">
+        <button class="back-button">&lt; Go Back</button>
+    </a>
+
+    <!-- Modal -->
+    <div id="modal" class="modal-overlay" style="display:none;" onclick="closeModal(event)">
+        <div class="modal-box">
+            <h2 id="modalTitle"></h2>
+            <table class="modal-table">
+                <tr><td>Grade</td><td id="modalGrade"></td></tr>
+                <tr><td>Credits</td><td id="modalCredits"></td></tr>
+            </table>
+            <button class="submit-button" onclick="document.getElementById('modal').style.display='none'">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(name, grade, credits) {
+            document.getElementById('modalTitle').textContent = name;
+            document.getElementById('modalGrade').textContent = grade;
+            document.getElementById('modalCredits').textContent = credits;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

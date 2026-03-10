@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Semester - Degree Planner</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <h1>Semester 4</h1>
+
+    <div id="capSection">
+        <div class="cap-control">
+            <label for="maxCourses">Course count: </label>
+            <input type="number" id="maxCourses" min="1" max="5" placeholder="Enter amount"/>
+        </div>
+        <button id="confirmCap" class="submit-button">Confirm</button>
+    </div>
+
+    <div id="courseSection" style="display:none;">
+        <div class="counter">
+            Selected: <span id="selectedCount">0</span> / <span id="maxCount">0</span>
+        </div>
+
+        <form method="POST" th:action="@{/semester}">
+            <div class="course-list">
+                <div class="course-item">
+                    <input type="checkbox" id="course1" name="courses" value="course1" class="course-checkbox"/>
+                    <label for="course1">Course 1</label>
+                </div>
+                <div class="course-item">
+                    <input type="checkbox" id="course2" name="courses" value="course2" class="course-checkbox"/>
+                    <label for="course2">Course 2</label>
+                </div>
+                <div class="course-item">
+                    <input type="checkbox" id="course3" name="courses" value="course3" class="course-checkbox"/>
+                    <label for="course3">Course 3</label>
+                </div>
+                <div class="course-item">
+                    <input type="checkbox" id="course4" name="courses" value="course4" class="course-checkbox"/>
+                    <label for="course4">Course 4</label>
+                </div>
+                <div class="course-item">
+                    <input type="checkbox" id="course5" name="courses" value="course5" class="course-checkbox"/>
+                    <label for="course5">Course 5</label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Courses</button>
+        </form>
+    </div>
+
+    <a th:href="@{/courses}">
+        <button class="back-button">&lt; Go Back</button>
+    </a>
+
+    <script>
+        const maxInput = document.getElementById('maxCourses');
+        const countDisplay = document.getElementById('selectedCount');
+        const maxDisplay = document.getElementById('maxCount');
+        const checkboxes = document.querySelectorAll('.course-checkbox');
+        const courseSection = document.getElementById('courseSection');
+        const capSection = document.getElementById('capSection');
+        const confirmBtn = document.getElementById('confirmCap');
+
+        confirmBtn.addEventListener('click', () => {
+            const max = parseInt(maxInput.value);
+            if (!max || max < 1) return;
+
+            maxDisplay.textContent = max;
+            capSection.style.display = 'none';
+            courseSection.style.display = 'block';
+        });
+
+        function updateCheckboxes() {
+            const max = parseInt(maxDisplay.textContent);
+            const checked = document.querySelectorAll('.course-checkbox:checked').length;
+
+            countDisplay.textContent = checked;
+
+            checkboxes.forEach(cb => {
+                if (!cb.checked) {
+                    cb.disabled = checked >= max;
+                }
+            });
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateCheckboxes));
+    </script>
+</body>
+</html>
