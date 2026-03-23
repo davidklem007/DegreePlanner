@@ -1,0 +1,30 @@
+package com.example.DegreePlanner.domain;
+
+
+//Represents a course that can be enrolled in
+//Different from a Course that has actually been enrolled in a specific semester
+public class AvailableCourse {
+
+    private final String name;
+    private final int credits;
+
+    public AvailableCourse(String name, int credits) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Course name cannot be blank");
+        }
+        if (credits < 1 || credits > 6) {
+            throw new IllegalArgumentException("Credits must be between 1 and 6");
+        }
+        this.name = name;
+        this.credits = credits;
+    }
+
+    //Creates an enrolled Course from this catalog entry
+    
+    public Course enroll() {
+        return new Course(this.name, this.credits);
+    }
+
+    public String getName() { return name; }
+    public int getCredits() { return credits; }
+}
